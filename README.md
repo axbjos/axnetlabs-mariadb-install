@@ -7,10 +7,9 @@ In this guide we are installing the MySQL database on Ubunt 20.04 running as a V
 
 Common data-driven application architectures implement what are known as CRUD Operations, in which data records can be Created, Retrieved, Updated, and Deleted.
 
-One of the most common means of storing data is in a SQL (Structured Query Language) Database (https://www.w3schools.com/sql/sql_intro.asp (Links to an external site.)).
+One of the most common means of storing data is in a SQL (Structured Query Language) Database.
 
 In this guide, the "MariaDB" open source distribution of MySQL will be used. 
-
  
 
 ### Ubuntu 20.04 Install & Config
@@ -21,9 +20,11 @@ Manually reate a new Virtual Machine with the following configuration:
 - 1 vCPU
 - 40GB Hard Disk 
 
-You will need an Ubuntu installer .iso.  
+You will need an Ubuntu 20.04 SERVER installer .iso.  
 
-Download it here: 64-bit PC (AMD64) server install image (Links to an external site.)     Do not power up the VM yet!
+Download it here: https://releases.ubuntu.com/focal/
+
+Do not power up the VM yet!
 Click on the menu in the "Tools" section of the VirtualBox GUI, select "Network", and ensure that you have a "Host Only" network created.  If not click "Create."  Make sure that the "DHCP" box is checked. (see screenshots displayed after #6 below).  Host Only networks are useful in Virtualbox for ssh access as well as creating private networks for VM's to talk to one another.
 Now, alter the settings of the VM you created in Step 1, by configuring it to also connect to a Host Only Network.  Adapter 1 in the VM should be connected to a network named "NAT" and Adapter 2 should be connected to the Host Only network you created in Step 2.  Adapter 2 will be initially grayed-out.  Click the "Enable..." box.  Then select the drop downs for Host-only Adapter and the Host Only network.  It will probably be identified as "vboxnet0"    The VM must be powered off to make networking changes.
 Now follow the usual manual process for installing Ubuntu using the .iso installer. (you should be able to locate guides in former coursework)
