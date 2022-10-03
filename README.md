@@ -148,7 +148,7 @@ A "select" statement is used to select only the Host and User columns from the u
     select Host, User from mysql.user;
 
 
-#### Create a new user.  
+#### Create a new user:  
 
 Create a user for yourself that has admin privileges.  Descriptions of various MySQL administration commands are easily found on the internet.  Look these commands up so you know what each does.  Remember to replace things in the < > brackets with your own data.
 
