@@ -76,12 +76,21 @@ From a Windows or MacOS command line, type in:  ssh <myusername>@<vmipaddress>
 
 ### MySQL Installation
 
-Run the following commands in succession to update the server.
+Run the following commands in succession to update the server:
 
     sudo apt update
     sudo apt upgrade
+
+Install the MariaDB distro of MySQL:
+
     sudo apt install mariadb-server
+
+Check the status:
+
     sudo systemctl status mariadb
+
+Check the version:
+
     mysql -V
 
 The "systemctl" command above is used to manage "services" installed on the server.  The MariaDB is installed as a "service."  In other words an application, in this case a database, that will run whenever the server is running.  The command "systemctl status mariadb" should show that the status of the DB is "active (running)".  If not, there was a problem.
