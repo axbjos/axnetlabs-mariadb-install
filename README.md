@@ -43,62 +43,68 @@ Adapter 2 will be initially grayed-out.
 
 Click the "Enable..." box. 
 
-Then select the drop downs for Host-only Adapter and the Host Only network.  It will probably be identified as "vboxnet0"    The VM must be powered off to make networking changes!
+Then select the drop down for Host-only Adapter and the Host Only network.  It will probably be identified as "vboxnet0"  The VM must be powered off to make networking changes!
 
 ![Virtualbox](virtualbox3.png)
 
-Now follow the usual manual process for installing Ubuntu using the .iso installer. (you should be able to locate guides in former coursework)
+Boot up the VM!!!
+
+Follow the Ubuntu installer.
+
 The installer will ask if you want to install Open SSH - remember to click yes.
-Wait for everything to finish. Reboot when instructed.
-Creating a Host Only Network:
 
-Screen Shot 2021-09-27 at 11.53.20 AM.pngScreen Shot 2021-09-27 at 11.53.30 AM.png
+Make sure Ubuntu allocates all of the 40GB hard disk
 
- 
-
-Selecting a Host Only Network in the VM Configuration Settings:
-
-Screen Shot 2021-09-27 at 11.59.04 AM.png
+Wait for everything to finish. Reboot when instructed
 
  
 
-Ubuntu Configuration
+### Ubuntu Configuration
 
 Login to the VM via the VirtualBox VM console (in other words the VM "window" that displays when the VM is running).
+
 Type in "ip addr" to view the IP addresses on the system. 
-The IP address assigned to enp0s8 should be the network adapter connected to the Host Only network.   The other adapter, enp0s3, should be connected to the NAT network and should have an ip address of 10.0.2.15.  Write down the IP address associated with enp0s8.
-Use the enp0s8 IP address to log into the VM using an SSH client. 
-From a Windows or MacOS command line, simply type in:  ssh <myusername>@<vmipaddress>
+
+The first ethernet adapter, enp0s3, should be connected to the NAT network and should have an ip address of 10.0.2.15.  
+
+The second ethernet adapter, enp0s8 should be the network adapter connected to the Host Only network and should have an IP address in the DHCP range of your Host Only Network.
+
+Write down the IP address associated with enp0s8 - you will use this IP to ssh to the VM.
+
+From a Windows or MacOS command line, type in:  ssh <myusername>@<vmipaddress>
  
 
-MySQL Installation
+### MySQL Installation
 
 Run the following commands in succession to update the server.
 
-sudo apt update
-sudo apt upgrade
-sudo apt install mariadb-server
-sudo systemctl status mariadb
-mysql -V
+    sudo apt update
+    sudo apt upgrade
+    sudo apt install mariadb-server
+    sudo systemctl status mariadb
+    mysql -V
+
 The "systemctl" command above is used to manage "services" installed on the server.  The MariaDB is installed as a "service."  In other words an application, in this case a database, that will run whenever the server is running.  The command "systemctl status mariadb" should show that the status of the DB is "active (running)".  If not, there was a problem.
 
 If after running the sudo systemctl status mariadb command it seems like you can't get back to the command line, type a CONTROL-C.
 
 Now run a script named mysql_secure_installation to do some preliminary configuration to the MariaDB (MySQL) database.
 
-Answer the questions asked using the default suggestions.
+    mysql_secure_installation
 
-sudo mysql_secure_installation     
+Answer the questions asked using the default suggestions.
+    
 After running this script, restart MariaDB so the changes take effect.
 
 In the block below there are two commands shown to restart MariaDB.  Unfortunately there are often many different ways to do the same thing in Linux.  It is good to have exposure to all of them.
 
-sudo service mysql restart   
+    sudo service mysql restart   
 
 or
  
-systemctl restart mariadb
-Now access the MySQL database by using the "mysql" command.  The MySQL Command Line prompt should be displayed.  Since we don't have any other users built in MySQL yet, we have to login as the superuser.
+    systemctl restart mariadb
+
+Access the MySQL database by using the "mysql" command.  The MySQL Command Line prompt should be displayed.  Since we don't have any other users built in MySQL yet, we have to login as the superuser.
 
 sudo mysql
 
