@@ -35,7 +35,18 @@ Host Only networks are useful in Virtualbox for ssh access as well as for creati
 ![Virtualbox](virtualbox1.png)
 ![Virtualbox](virtualbox2.png)
 
-Now, alter the settings of the VM you created in Step 1, by configuring it to also connect to a Host Only Network.  Adapter 1 in the VM should be connected to a network named "NAT" and Adapter 2 should be connected to the Host Only network you created in Step 2.  Adapter 2 will be initially grayed-out.  Click the "Enable..." box.  Then select the drop downs for Host-only Adapter and the Host Only network.  It will probably be identified as "vboxnet0"    The VM must be powered off to make networking changes.
+Alter the settings of the VM you created in Step 1, by configuring it to also connect to a Host Only Network.  
+
+Adapter 1 in the VM should be connected to a network named "NAT" and Adapter 2 should be connected to the Host Only network you created in Step 2.  
+
+Adapter 2 will be initially grayed-out.  
+
+Click the "Enable..." box. 
+
+Then select the drop downs for Host-only Adapter and the Host Only network.  It will probably be identified as "vboxnet0"    The VM must be powered off to make networking changes!
+
+![Virtualbox](virtualbox3.png)
+
 Now follow the usual manual process for installing Ubuntu using the .iso installer. (you should be able to locate guides in former coursework)
 The installer will ask if you want to install Open SSH - remember to click yes.
 Wait for everything to finish. Reboot when instructed.
